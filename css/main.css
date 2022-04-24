@@ -1,0 +1,47 @@
+* {
+    margin: 0px;
+    left: 0%;
+}
+
+body {
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffae01, #ffffff);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffae01, #bfff00);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    animation: body-animated 15s infinite ease-in-out;
+    background-size: 400% 400%;
+}
+
+
+/* * CSS animado bakcground */
+
+@keyframes body-animated {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.lienzo {
+    border-radius: 10px;
+    margin-left: 1% !important;
+    background: rgba(0, 0, 0, 0.723);
+    width: 98%;
+    height: 85vh;
+}
+
+.img {
+    width: 5%;
+    height: auto;
+}
