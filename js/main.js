@@ -78,7 +78,8 @@ const cronometro = () => {
         timer.textContent = "Tiempo restante: " + tiempo;
         //Si llega a 0 se detiene el intervalo
         if (tiempo == 0) {
-            alert("Se acabó el tiempo");
+            // alert("Se acabó el tiempo");
+            timer.textContent = "Se acabo el tiemmpo: " + puntos;
             clearInterval(intervalo);
         }
     }, 100);

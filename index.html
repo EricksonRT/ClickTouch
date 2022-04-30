@@ -21,6 +21,22 @@
         <p id="alto"></p> -->
         <p id="timer">Cronometro</p>
     </div>
+
+    <dialog>
+        <h1>DEmo modal</h1>
+
+        <button id="cancel">Cerrar</button>
+    </dialog>
+    <button id="show">Abrir</button>
+
+    <script>
+        const dialog = document.querySelector('dialog');
+        const cancel = document.querySelector('#cancel');
+        const show = document.querySelector('#show');
+
+        show.addEventListener('click', () => dialog.showModal());
+        cancel.addEventListener('click', () => dialog.close());
+    </script>
     <script src="./js/main.js"></script>
 </body>
 
