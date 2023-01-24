@@ -58,6 +58,7 @@ pelota.addEventListener('click', () => {
     sumaPuntos();
     pelota.setAttribute('style', 'opacity:0;')
     pelota.setAttribute('style', 'opacity:1; transform: translate(' + ancho + 'px, ' + alto + 'px)');
+    // pelota.classList.contains('anim') ? pelota.classList.remove('anim') : pelota.classList.add('anim')
 
 })
 

@@ -17,9 +17,6 @@ body {
     background-size: 400% 400%;
 }
 
-body>p {
-    /* font-family: 'Gamja Flower', cursive; */
-}
 
 
 /* * CSS animado bakcground */
@@ -50,10 +47,10 @@ body>p {
 }
 
 .img {
-    width: 5%;
-    height: auto;
+    height: 4.30em;
     cursor: pointer;
     position: fixed;
+    transition: all 0.5s;
 }
 
 .caja {
