@@ -22,20 +22,17 @@
     </div>
 
     <dialog>
-        <h1>DEmo modal</h1>
-
-        <button id="cancel">Cerrar</button>
+        <h1>¡Se acabó el tiempo!</h1>
+        <div class="flex col bg-puntaje">
+            <h2 class="bg-yellow">Puntuación final: </h2>
+            <span id="puntajeFInal"></span>
+            <h2 class="bg-yellow">Puntuación Máxima: </h2>
+            <span id="puntajeMax"></span>
+        </div>
+        <button class="btn" id="cancel">Aceptar</button>
     </dialog>
-    <button id="show">Abrir</button>
+    <!-- <button class="btn" id="show">Abrir</button> -->
 
-    <script>
-        const dialog = document.querySelector('dialog');
-        const cancel = document.querySelector('#cancel');
-        const show = document.querySelector('#show');
-
-        show.addEventListener('click', () => dialog.showModal());
-        cancel.addEventListener('click', () => dialog.close());
-    </script>
     <script src="./js/main.js"></script>
 </body>
 

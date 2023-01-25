@@ -12,7 +12,14 @@ let puntos = 0;
 let inpt_puntos = document.querySelector('#inpt_puntos');
 //--------------------------------------------------------
 
-
+// -------------------------------------------------------
+// MODAL
+const dialogModal = document.querySelector('dialog');
+const closeModal = document.querySelector('#cancel');
+const showModal = document.querySelector('#show');
+// showModal.addEventListener('click', () => dialogModal.showModal());
+closeModal.addEventListener('click', () => dialogModal.close());
+// -------------------------------------------------------
 
 console.log("Ancho de pagina:" + divWidth);
 console.log("Alto de pagina:" + divHeight);
@@ -36,10 +43,10 @@ inicializarPelota();
 
 //Numeros random generados aleatoriamente acorde a la pantalla del dispositivo
 let nroRandomAncho = () => {
-    return Math.floor(Math.random() *  divWidth - 30);
+    return Math.floor(Math.random() * divWidth - 30);
 }
 let nroRandomAlto = () => {
-    return Math.floor(Math.random() *  (divHeight - 45));
+    return Math.floor(Math.random() * (divHeight - 45));
 }
 
 
@@ -50,9 +57,6 @@ pelota.addEventListener('click', () => {
     //guardamos los valores random en nuevas variables 
     let = ancho = nroRandomAncho();
     let = alto = nroRandomAlto();
-
-    // console.log(nroRandomAlto());
-    // console.log(nroRandomAncho());
     // document.getElementById("ancho").textContent = "Ancho: " + ancho;
     // document.getElementById("alto").textContent = "Alto: " + alto;
     sumaPuntos();
@@ -71,7 +75,7 @@ const sumaPuntos = () => {
     inpt_puntos.textContent = "Puntuación: " + puntos;
 }
 
-//Timepo
+//Tiempo
 const cronometro = () => {
     let tiempo = 60;
     let intervalo = setInterval(() => {
@@ -82,9 +86,20 @@ const cronometro = () => {
             // alert("Se acabó el tiempo");
             timer.textContent = "Se acabo el tiemmpo: " + puntos;
             clearInterval(intervalo);
+            mostrarPuntajeFinal(puntos);
+            dialogModal.showModal();
         }
     }, 100);
 
 
 }
 cronometro();
+
+// Muestra puntuación y datos del modal
+const mostrarPuntajeFinal=(puntajeFinal)=>{
+    const $html_PuntajeFInal=document.querySelector('#puntajeFInal');
+    const $html_PuntajeMax=document.querySelector('#puntajeMax');
+    $html_PuntajeFInal.textContent=puntajeFinal;
+    $html_PuntajeMax.textContent="s";
+}
+

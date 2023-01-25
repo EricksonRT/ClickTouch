@@ -64,3 +64,56 @@ p {
     font-size: 24px;
     font-weight: 900;
 }
+dialog{
+    margin: auto;
+    width: 50%;
+    height: 15em;
+    transition: 1s all;
+    border: 0;
+    background-color:rgba(255, 228, 196, 0.827);
+    border-radius: 50px;
+    text-align: center;
+}
+dialog::-webkit-scrollbar{
+    width: 1em;
+}
+dialog::-webkit-scrollbar-thumb{
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+.flex{
+    box-sizing: border-box;
+    margin-top: 2%;
+    display: flex;
+    align-content: space-between;
+    padding: 2%;
+    margin: 2%;
+}
+.col{
+    flex: 1;
+    flex-direction: column;
+}
+.flex>span{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.bg-yellow{
+    background-color: #e1ff0045 !important;
+}
+.btn{
+    background-color: #fff;
+    width: 40%;
+    padding: 1%;
+    cursor: pointer;
+    border: 0;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+.btn:hover{
+    background-color: rgb(255, 174, 0);
+    color: #fff;
+}
+.bg-puntaje{
+    border-radius: 20px;
+   background-color: #6ed6ff49; 
+}
