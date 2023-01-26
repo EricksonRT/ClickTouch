@@ -17,8 +17,12 @@ let inpt_puntos = document.querySelector('#inpt_puntos');
 const dialogModal = document.querySelector('dialog');
 const closeModal = document.querySelector('#cancel');
 const showModal = document.querySelector('#show');
+const btnRestartGame=document.querySelector("#restart");
+// Botón de prueba para abrir el modal manualmente
 // showModal.addEventListener('click', () => dialogModal.showModal());
 closeModal.addEventListener('click', () => dialogModal.close());
+// Cierra el modal, e inicia el juego nuevamente
+btnRestartGame.addEventListener('click',()=> dialogModal.close(), iniciarJuego());
 // -------------------------------------------------------
 
 console.log("Ancho de pagina:" + divWidth);
@@ -39,7 +43,12 @@ function inicializarPelota() {
 }
 inicializarPelota();
 
-
+// Inicia el juego al cargar la pagina
+const iniciarJuego=()=> {
+    puntos = 0
+    cronometro();
+};
+iniciarJuego()
 
 //Numeros random generados aleatoriamente acorde a la pantalla del dispositivo
 let nroRandomAncho = () => {
@@ -57,8 +66,6 @@ pelota.addEventListener('click', () => {
     //guardamos los valores random en nuevas variables 
     let = ancho = nroRandomAncho();
     let = alto = nroRandomAlto();
-    // document.getElementById("ancho").textContent = "Ancho: " + ancho;
-    // document.getElementById("alto").textContent = "Alto: " + alto;
     sumaPuntos();
     pelota.setAttribute('style', 'opacity:0;')
     pelota.setAttribute('style', 'opacity:1; transform: translate(' + ancho + 'px, ' + alto + 'px)');
@@ -69,7 +76,6 @@ pelota.addEventListener('click', () => {
 
 
 // Sistema de puntuación//
-
 const sumaPuntos = () => {
     puntos += 1;
     inpt_puntos.textContent = "Puntuación: " + puntos;
@@ -83,8 +89,7 @@ const cronometro = () => {
         timer.textContent = "Tiempo restante: " + tiempo;
         //Si llega a 0 se detiene el intervalo
         if (tiempo == 0) {
-            // alert("Se acabó el tiempo");
-            timer.textContent = "Se acabo el tiemmpo: " + puntos;
+            timer.textContent = "Se acabo el tiempo";
             clearInterval(intervalo);
             mostrarPuntajeFinal(puntos);
             dialogModal.showModal();
@@ -93,13 +98,27 @@ const cronometro = () => {
 
 
 }
-cronometro();
+
 
 // Muestra puntuación y datos del modal
 const mostrarPuntajeFinal=(puntajeFinal)=>{
     const $html_PuntajeFInal=document.querySelector('#puntajeFInal');
     const $html_PuntajeMax=document.querySelector('#puntajeMax');
     $html_PuntajeFInal.textContent=puntajeFinal;
-    $html_PuntajeMax.textContent="s";
+    $html_PuntajeMax.textContent=localStoragePuntajeMaximo(puntajeFinal);
 }
 
+// Verifica que la localStorage exista, si no se ha creado, la crea en vacio.
+let puntajeMaximo=0;
+if (localStorage.getItem('Puntuacion_maxima', '') ==null) localStorage.setItem('Puntuacion_maxima', '');
+// Recibe el puntaje actual y compara si el localStorage está vacío
+const localStoragePuntajeMaximo=(puntajeFinal)=>{
+    let puntajeActual=puntajeFinal;
+        // Si está vacio, compara el puntaje actual con el maximo y guarda el valor en el local storage, sino, valida el puntaje actual con el del localStorage
+    if (localStorage.getItem('Puntuacion_maxima')==='') {
+        if(puntajeActual>puntajeMaximo) puntajeMaximo=puntajeActual, localStorage.setItem('Puntuacion_maxima',puntajeMaximo);
+            }else{
+                if(puntajeActual>localStorage.getItem('Puntuacion_maxima')) puntajeMaximo=puntajeActual, localStorage.setItem('Puntuacion_maxima',puntajeMaximo);
+            }
+    return localStorage.getItem('Puntuacion_maxima');
+}

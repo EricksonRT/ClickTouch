@@ -108,6 +108,7 @@ dialog::-webkit-scrollbar-thumb{
     border: 0;
     transition: 0.5s;
     border-radius: 20px;
+    margin: 1px;
 }
 .btn:hover{
     background-color: rgb(255, 174, 0);
@@ -116,4 +117,13 @@ dialog::-webkit-scrollbar-thumb{
 .bg-puntaje{
     border-radius: 20px;
    background-color: #6ed6ff49; 
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+.justify-content-center{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
