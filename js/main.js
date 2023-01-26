@@ -22,7 +22,7 @@ const btnRestartGame=document.querySelector("#restart");
 // showModal.addEventListener('click', () => dialogModal.showModal());
 closeModal.addEventListener('click', () => dialogModal.close());
 // Cierra el modal, e inicia el juego nuevamente
-btnRestartGame.addEventListener('click',()=> dialogModal.close(), iniciarJuego());
+btnRestartGame.addEventListener('click',()=> {dialogModal.close(); iniciarJuego()});
 // -------------------------------------------------------
 
 console.log("Ancho de pagina:" + divWidth);
@@ -43,12 +43,6 @@ function inicializarPelota() {
 }
 inicializarPelota();
 
-// Inicia el juego al cargar la pagina
-const iniciarJuego=()=> {
-    puntos = 0
-    cronometro();
-};
-iniciarJuego()
 
 //Numeros random generados aleatoriamente acorde a la pantalla del dispositivo
 let nroRandomAncho = () => {
@@ -95,9 +89,14 @@ const cronometro = () => {
             dialogModal.showModal();
         }
     }, 100);
-
-
 }
+
+// Inicia el juego al cargar la pagina
+const iniciarJuego=()=> {
+    puntos = 0;
+    cronometro();
+};
+iniciarJuego()
 
 
 // Muestra puntuación y datos del modal
