@@ -33,7 +33,7 @@ console.log("Alto de pagina:" + divHeight);
 function inicializarPelota() {
     //creacion un elemento de tipo img
     const img = document.createElement("img");
-    img.src = "../assets/img/boton.png";
+    img.src = "./assets/img/boton.png";
     // agregamos el elemento como hijo del div, llamado canva
     canva.appendChild(img);
     img.classList.toggle("img");
